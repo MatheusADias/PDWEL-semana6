@@ -1,22 +1,20 @@
-<?php 
+<?php
+include('fatorial.php');
+
 echo nl2br('2) Dadas as funções do exercícios 1 faça o seguinte:
     a) armazene em um vetor os primeiros n fatoriais dado que n é o parâmetro da função fatorial. Exiba no cliente os elementos do vetor.');
 
-    $n = 10;
+    $n = 20;
+    echo fatorial_vetor($n);
 
-    echo '<br><br>Elementos do vetor de fatorial de '. $n . ': <br>';
-    print_r(fatorial($n));
-
-    function fatorial($n){
+    function fatorial_vetor($n){
         $i = 0;
         $fatoriais = array();
-        $total = 1;
-        while ($n > 1) {
-            $total *= $n;
+        while ($n >= 1) {
+            $fatoriais[] = fatorial($n);
+            echo '<br>Fatorial de ' . $n . '!: ' . $fatoriais[$i];
             $n--;
-            array_unshift($fatoriais, $total);
+            $i++;
         }
-        $i++;
-        return array_values($fatoriais);
     }
 ?>
